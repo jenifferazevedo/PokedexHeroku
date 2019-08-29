@@ -8,9 +8,6 @@ import Social from '../components/Icons/Social';
 const Backgroundsite = styled.div`
 width: 100%;
 background: ${({ theme }) => theme.colors.background1} no-repeat fixed;
-@media (max-width: 568px) {
-    height: 800px;
-}
 `
 const Footer = styled.div`
 background: ${({ theme }) => theme.colors.blue};
