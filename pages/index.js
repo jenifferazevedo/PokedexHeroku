@@ -9,9 +9,6 @@ const Backgroundsite = styled.div`
 width: 100%;
 height: 100vh;
 background: ${({ theme }) => theme.colors.background1} no-repeat fixed;
-@media (max-width: 568px) {
-    height: 800px;
-}
 `
 const Footer = styled.div`
 background: ${({ theme }) => theme.colors.blue};
