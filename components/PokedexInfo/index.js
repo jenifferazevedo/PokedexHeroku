@@ -15,8 +15,10 @@ const Pokeinfo = styled.div`
     padding: 1% 2% 2% 2%;
     margin-left: 5%;
     position: absolute;
-    z-index: ${props => props.open ? '2' : '-1'};
-    transition: z-index ${props => props.open ? '2s' : '0s'};
+    z-index: ${props => props.open ? '2' : '-2'};
+    opacity:  ${props => props.open ? '1' : '0'};
+    transition-property: z-index, opacity;
+    transition-duration: ${props => props.open ? '2.5s' : '0s'}, ${props => props.open ? '1.5s' : '0s'};;
     @media (max-width: 568px) {
     height: 200px;
     top: 10px;
@@ -27,7 +29,7 @@ const Pokemonselecionado = styled.div`
     width: 90%;
     background: ${({ theme }) => theme.colors.blue1};
     border-radius: 10px;
-    margin-top: 12%;
+    margin-top: 15%;
     margin-left: 5%;
     padding-bottom: 2%;
     position: absolute;
@@ -82,23 +84,18 @@ export default function index(props) {
     const [pokemon, setPokemon] = useState("");
     const [error, setError] = useState("");
     const [result, setResult] = useState (false);
-    const [state, setState] = useState("");
 
     function PesquisaPokemon() {
         if (pokemon.length === 0) {
-            setError("Ops, você não digitou nenhum nome")
+            setError("You didn't enter any name!")
         } else {
             setError("");
             axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`).then((response) => {
-                // handle success
-                console.log(response.data)
                 setResult (response.data);
                 setPokemon ("");
             })
                 .catch((error) => {
-                    // handle error
-                    setError("Ops, digitou o nome do pokemon errado")
-                    console.log(error);
+                    setError("Ops, typed the wrong pokemon name! Remember, only in english!");
                 })             
         }
     }

@@ -20,16 +20,14 @@ const Iconbutton = styled.div`
         font-size: 1.8em;
         fill: ${({ theme }) => theme.colors.cinzaescuro};
         };
-        @keyframes animatedgradient {
-	    0% {
-		    background-position: 0% 50%;
-	    }
-	    50% {
-		    background-position: 100% 50%;
-	    }
-	    100% {
-		    background-position: 0% 50%;
-	    }
+        @media (max-width: 568px) {
+            width: 50px;
+            height: 50px;
+            padding: 8px;
+            margin: 0% 5%;
+            .anticon{
+                font-size: 2.3em;
+            }
         }
     }
 `

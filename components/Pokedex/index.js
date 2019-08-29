@@ -36,22 +36,6 @@ export default function index(props) {
         console.log(setResetStates)
     }
 
-    //const [state, setState] = useState(false);
-    //    <Row>
-    //        <Col span={24}>
-    //            <Poke open={state}>
-    //                <Up opening={state} />
-    //                <div onClick={() => setState(!state)}>
-    //                    <Pokebutton opening={state} />
-    //                </div>
-    //                <Down opening={state} />
-    //                <div onClick={ () => setState(!state && (""))}> 
-    //                    <ButtonOff open={state}><Icon type="poweroff" /></ButtonOff>
-    //                </div>
-    //            </Poke>
-    //        </Col>
-    //    </Row>
-    // <Pokebutton opening={state} />
     return (
         <Basement open={state}>
             <Up opening={state} />
@@ -62,13 +46,9 @@ export default function index(props) {
                 <Pokedexinfo opening={state} resetStates={resetStateFunction} />
             </Pokebase>
             <Down />
-            <div onClick={() => resetStateFunction(setState(!state))}>
+            <div onClick={() => resetStateFunction(!state) || setState(!state)}>
                 <Pokebuttonoff opening={state} />
             </div>
         </ Basement>
     )
 }
-
-//<div onClick={() => setState((""))}>
-//<Pokebuttonoff opening={state} />
-//</div>
